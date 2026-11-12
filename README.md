@@ -80,8 +80,9 @@ A hosted URL lets anyone connect without Node, including Claude on the web. The 
 
 ## Get found
 
-- Add the server to the public MCP directories, like the [official MCP Registry](https://github.com/modelcontextprotocol/registry), so agents and the people who use them can discover it.
-- Link the homepage from billiecavallaro.com as a featured project.
+See **[PUBLISHING.md](PUBLISHING.md)** for step-by-step listing: npm, the official MCP Registry, and the community directories.
+
+- Link the homepage from billiecavallaro.com as a featured project (done).
 - `public/llms.txt` gives AI crawlers a plain-text summary of you and the server.
 
 ## Updating

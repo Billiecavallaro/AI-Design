@@ -1,7 +1,18 @@
 {
   "name": "billie-mcp",
   "version": "0.2.0",
-  "description": "billie.mcp: Billie Cavallaro as an MCP server, plus its garage-studio homepage",
+  "mcpName": "io.github.Billiecavallaro/billie-mcp",
+  "description": "billie.mcp: Billie Cavallaro, principal product designer, as an MCP server. Check his fit for a role, read case studies, book an intro, find his products for designers.",
+  "keywords": [
+    "mcp",
+    "mcp-server",
+    "model-context-protocol",
+    "portfolio",
+    "product-design",
+    "ai",
+    "agents",
+    "hiring"
+  ],
   "scripts": {
     "dev": "node scripts/build-site.mjs && tsx dev/serve.ts",
     "start": "node bin/billie-mcp.js",
@@ -29,7 +40,6 @@
     "typescript": "^7.0.2"
   },
   "type": "module",
-  "private": true,
   "engines": {
     "node": ">=20"
   },

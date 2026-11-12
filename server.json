@@ -1,0 +1,20 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Billiecavallaro/billie-mcp",
+  "title": "billie.mcp",
+  "description": "Designer Billie Cavallaro as an MCP server: role fit, case studies, intros and products.",
+  "websiteUrl": "https://billiecavallaro.github.io/AI-Design/",
+  "repository": {
+    "url": "https://github.com/Billiecavallaro/AI-Design",
+    "source": "github"
+  },
+  "version": "0.2.0",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "billie-mcp",
+      "version": "0.2.0",
+      "transport": { "type": "stdio" }
+    }
+  ]
+}
