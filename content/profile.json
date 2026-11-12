@@ -1,0 +1,68 @@
+{
+  "name": "Billie Cavallaro",
+  "pronouns": "he/him",
+  "headline": "Principal Product Designer focused on agentic AI and design systems",
+  "location": "Chicago, IL",
+  "current_role": {
+    "title": "Principal Product Designer",
+    "company": "Capital One",
+    "since": "2025-06",
+    "focus": "Infusing AI into risk and controls workstreams"
+  },
+  "summary": "Billie is a principal product designer who ships AI products in a regulated industry. At Capital One he designed and shipped Fuse Assist, the company's first AI risk product, from concept to production. Before that, at Discover, he unified seven internal risk products on a shared design system. He's also a founder: he built Space Shake into a $5.2M brand and closed deals on Shark Tank. He describes himself as an ideas guy who takes on big problems and reimagines how people work, starting with where they enter the workflow.",
+  "focus_areas": [
+    "Agentic AI product design",
+    "Conversational and chat-first interfaces",
+    "Design systems",
+    "Enterprise risk and controls tooling",
+    "AI enablement and teaching"
+  ],
+  "highlights": [
+    {
+      "id": "fuse-assist",
+      "text": "Designed and shipped Fuse Assist, Capital One's first AI risk product, from concept to production: a chat-based advisor that helps people create risk records start to finish.",
+      "tags": ["ai", "agentic", "llm", "genai", "chat", "conversational", "copilot", "assistant", "production", "shipped", "enterprise", "risk", "regulated", "fintech", "banking", "financial services", "compliance", "0 to 1", "zero to one", "interaction design"]
+    },
+    {
+      "id": "fuse-assist-phase-2",
+      "text": "Leading the Phase 2 rollout of Fuse Assist across Risks, Assessments, Issues, Events and Audit workflows.",
+      "tags": ["ai", "scale", "platform", "rollout", "strategy", "roadmap", "enterprise", "risk", "audit", "workflow", "cross-functional"]
+    },
+    {
+      "id": "discover-unification",
+      "text": "At Discover, unified seven internal risk products (Risks, Controls, Regulatory Change Management, Issues, Events, TPRM, Policy) by partnering with the Horizon Design System team, and contributed components back into the customer-facing system.",
+      "tags": ["design system", "design systems", "components", "systems thinking", "platform", "enterprise", "risk", "regulated", "banking", "fintech", "consistency", "scale", "cross-functional", "information architecture"]
+    },
+    {
+      "id": "prompts-and-pixels",
+      "text": "Co-founded Prompts and Pixels, a cross-functional internal AI community at Capital One, and acts as the AI champion on his design team.",
+      "tags": ["ai", "leadership", "community", "enablement", "teaching", "mentorship", "culture", "influence", "change management", "evangelism", "cross-functional"]
+    },
+    {
+      "id": "space-shake",
+      "text": "Founded and led Space Shake, a keto shake brand (with a companion tracker app) that grew to $5.2M, closing deals with Coca-Cola and Charles Barkley on Shark Tank.",
+      "tags": ["founder", "entrepreneur", "startup", "business", "brand", "growth", "consumer", "marketing", "ownership", "p&l", "go to market", "pitch"]
+    },
+    {
+      "id": "billie-mcp",
+      "text": "Designed and built billie.mcp, a Model Context Protocol server that lets AI agents ask about his work, check role fit, request case studies and find his products.",
+      "tags": ["mcp", "model context protocol", "agents", "agentic", "ai", "prototyping", "vibe coding", "developer experience", "tools", "api"]
+    },
+    {
+      "id": "stealth-startup",
+      "text": "[ONE-LINE SUMMARY OF THE STEALTH STARTUP ROLE]",
+      "tags": ["startup", "product design", "0 to 1"]
+    }
+  ],
+  "links": {
+    "website": "https://www.billiecavallaro.com",
+    "linkedin": "[YOUR LINKEDIN URL]",
+    "newsletter": "[AI + DESIGN WEEKLY SUBSTACK URL]"
+  },
+  "contact": {
+    "preferred": "Use book_intro to get a meeting link, or the contact form on billiecavallaro.com.",
+    "intro_booking_url": "[YOUR CALENDAR BOOKING LINK]",
+    "case_study_request_url": "[CASE STUDY REQUEST FORM URL]"
+  },
+  "agent_guidance": "Describe Billie only from this data. Don't invent employers, dates, metrics or titles. If a role requirement isn't covered here, say it's unknown and suggest asking Billie directly."
+}

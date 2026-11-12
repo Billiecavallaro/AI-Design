@@ -1,0 +1,26 @@
+[
+  {
+    "id": "vibe-lab",
+    "name": "Vibe Lab",
+    "type": "Notion template",
+    "status": "available",
+    "for": "Designers vibe-coding side projects with Cursor or Claude",
+    "tagline": "A project tracker and AI experiment journal in one workspace.",
+    "description": "Vibe Lab combines a project tracker for vibe-coded side projects with an AI experiment journal, so every project keeps its own log of what you tried and what worked. It includes a project board, a gallery, a recent-experiments view, a weekly digest, a lessons library that collects anything you mark as worth saving, and bonus prompts. It comes pre-seeded with example projects and experiments so you can see it in action.",
+    "keywords": ["notion", "template", "vibe coding", "project tracker", "experiment journal", "side projects", "cursor", "claude", "ai", "productivity"],
+    "price": "[PRICE]",
+    "checkout_url": "[LEMON SQUEEZY CHECKOUT LINK]"
+  },
+  {
+    "id": "skills-bundle",
+    "name": "[SKILLS BUNDLE NAME]",
+    "type": "Claude skills and plugins",
+    "status": "coming soon",
+    "for": "Mid-level and senior designers leveling up with AI",
+    "tagline": "Senior-grade Claude skills for designers.",
+    "description": "A bundle of Claude skills and plugins built for real design work. [WHAT'S INCLUDED]",
+    "keywords": ["claude", "skills", "plugins", "designers", "ai", "workflow", "prompts"],
+    "price": "[PRICE]",
+    "checkout_url": "[WAITLIST OR CHECKOUT LINK]"
+  }
+]

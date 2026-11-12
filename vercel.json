@@ -1,0 +1,8 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "outputDirectory": "public",
+  "functions": {
+    "api/mcp.ts": { "includeFiles": "content/**" }
+  },
+  "rewrites": [{ "source": "/mcp", "destination": "/api/mcp" }]
+}

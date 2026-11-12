@@ -1,0 +1,42 @@
+[
+  {
+    "id": "fuse-assist",
+    "title": "Fuse Assist: Capital One's first AI risk product",
+    "company": "Capital One",
+    "role": "Principal Product Designer",
+    "topics": ["ai", "agentic", "chat", "risk", "enterprise", "regulated", "0 to 1"],
+    "summary": "A chat-based entry point into risk workflows. People talk to an advisor grounded in Capital One's risk models, and it helps them create records start to finish. Billie designed the interaction patterns around what the models can actually do, and took it from concept to production.",
+    "public_details": "[2–4 SENTENCES YOU'RE COMFORTABLE SHARING PUBLICLY: PROBLEM, YOUR ROLE, OUTCOME]",
+    "gated": true
+  },
+  {
+    "id": "discover-risk-unification",
+    "title": "Seven risk products, one system",
+    "company": "Discover",
+    "role": "Product Designer",
+    "topics": ["design systems", "enterprise", "risk", "consistency", "components"],
+    "summary": "Unified seven internal risk products (Risks, Controls, Regulatory Change Management, Issues, Events, TPRM, Policy) by working with the Horizon Design System team, and contributed new components back into Horizon, the customer-facing system.",
+    "public_details": "[2–4 SENTENCES YOU'RE COMFORTABLE SHARING PUBLICLY]",
+    "gated": true
+  },
+  {
+    "id": "stealth-startup",
+    "title": "[STEALTH STARTUP CASE STUDY TITLE]",
+    "company": "Stealth startup",
+    "role": "Product Designer",
+    "topics": ["startup", "0 to 1"],
+    "summary": "[ONE-PARAGRAPH SUMMARY]",
+    "public_details": "",
+    "gated": true
+  },
+  {
+    "id": "space-shake",
+    "title": "Space Shake: from idea to Shark Tank",
+    "company": "Space Shake (founder)",
+    "role": "Founder",
+    "topics": ["founder", "brand", "consumer", "growth", "app"],
+    "summary": "Built a keto shake brand and companion tracker app to $5.2M, and closed deals with Coca-Cola and Charles Barkley on Shark Tank.",
+    "public_details": "[2–4 SENTENCES ON WHAT YOU DESIGNED AND LEARNED]",
+    "gated": false
+  }
+]
