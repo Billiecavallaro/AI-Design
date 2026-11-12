@@ -2,7 +2,7 @@
 
 I turned myself into an MCP server.
 
-**billie.mcp** is a [Model Context Protocol](https://modelcontextprotocol.io) server that lets any AI agent learn about my work, check my fit for a role, request my case studies, book an intro, or find my digital products for designers. It ships with a garage-studio homepage where visitors can explore how it works and try the server live.
+**billie.mcp** is a [Model Context Protocol](https://modelcontextprotocol.io) server that lets any AI agent learn about my work, check my fit for a role, request my case studies, book an intro, or find my digital products for designers. It ships with a garage-studio homepage where visitors can explore how it works and try the tools live.
 
 ## What's in here
 
@@ -12,8 +12,10 @@ content/            ← your words. Edit these, not the code.
   case-studies.json   public summaries of each case study
   products.json       Vibe Lab, skills bundle, prices, checkout links
 src/server.ts       the MCP server: tools and resources
-api/mcp.ts          the web endpoint (served at /mcp)
+api/mcp.ts          optional hosted endpoint (served at /mcp)
 public/             the homepage (index.html, app.js, llms.txt)
+src/tools.js        tool logic shared by the server and the homepage demo
+bin/billie-mcp.js   the installable version (npx)
 dev/serve.ts        local preview server
 scripts/smoke.ts    end-to-end test that calls every tool like an agent would
 ```
@@ -46,26 +48,35 @@ Needs Node 20 or newer.
 
 ```bash
 npm install
-npm run dev      # http://localhost:3000, MCP endpoint at /mcp
-npm test         # in a second terminal: calls every tool and checks the answers
+npm run dev              # http://localhost:3000 (page + an HTTP MCP endpoint at /mcp)
+npm test                 # in a second terminal: calls every tool over HTTP
+MCP_STDIO=1 npm test     # tests the installable version
 ```
 
-## Deploy (free, about 5 minutes)
+## How it's deployed
 
-1. Go to [vercel.com/new](https://vercel.com/new), sign in with GitHub, and import this repo.
-2. Leave every setting at its default and click **Deploy**. `vercel.json` already handles the rest.
-3. Your homepage is live at `https://<project>.vercel.app` and the server is at `https://<project>.vercel.app/mcp`.
-4. Optional: in Vercel → Settings → Domains, add something like `mcp.billiecavallaro.com`.
+**The homepage is on GitHub Pages.** Every push to `main` rebuilds it (`.github/workflows/pages.yml`). The "Try it live" demo runs the exact same tool code (`src/tools.js`) in the visitor's browser, so it works with no server.
 
-Check the live server with `MCP_URL=https://<your-domain>/mcp npm test`.
+One-time setup: repo **Settings → Pages → Source: GitHub Actions**.
 
-**Optional: get access requests sent to you.** Set an `ACCESS_REQUEST_WEBHOOK_URL` environment variable in Vercel (a Zapier, Make or Formspree webhook works). `request_full_access` will POST each request there. Without it, agents get your request form link instead.
+**The server installs straight from GitHub.** No hosting needed. People add it with:
 
-## Connect an agent
+- **Claude Code:** `claude mcp add billie -- npx -y github:Billiecavallaro/AI-Design`
+- **Claude Desktop:** add this to `claude_desktop_config.json`:
+  ```json
+  { "mcpServers": { "billie": { "command": "npx", "args": ["-y", "github:Billiecavallaro/AI-Design"] } } }
+  ```
 
-- **Claude (web, desktop):** add a custom connector with your `/mcp` URL.
-- **Claude Code:** `claude mcp add --transport http billie https://<your-domain>/mcp`
-- **Anything else that speaks MCP:** point it at the same URL. It's a stateless Streamable HTTP endpoint.
+The first launch takes a little longer while npx downloads it.
+
+### Later: a hosted URL (optional)
+
+A hosted URL lets anyone connect without Node, including Claude on the web. The code is ready (`api/mcp.ts`, `vercel.json`):
+
+1. Import this repo at [vercel.com/new](https://vercel.com/new) and deploy with the defaults (free).
+2. Your server is at `https://<project>.vercel.app/mcp`. Check it with `MCP_URL=https://<project>.vercel.app/mcp npm test`.
+3. Put that URL in the `mcp-endpoint` meta tag in `public/index.html`. The demo then calls the live server, and the Connect section shows the URL.
+4. Optional: set `ACCESS_REQUEST_WEBHOOK_URL` in Vercel (Zapier, Make or Formspree) so `request_full_access` sends requests straight to you.
 
 ## Get found
 
@@ -75,4 +86,4 @@ Check the live server with `MCP_URL=https://<your-domain>/mcp npm test`.
 
 ## Updating
 
-Edit a file in `content/`, commit, and push. Vercel redeploys automatically, and every agent sees the change on its next call.
+Edit a file in `content/`, commit, and push. The homepage redeploys automatically, and installed copies get it the next time npx fetches the latest version (a hosted URL updates immediately).

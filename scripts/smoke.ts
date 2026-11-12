@@ -1,11 +1,22 @@
 // End-to-end check: connects to the MCP endpoint like a real agent would and calls every tool.
-// Run `npm run dev` in one terminal, then `npm test` (or set MCP_URL to test a deployed server).
+// HTTP: run `npm run dev`, then `npm test` (or set MCP_URL to test a hosted server).
+// Installable version: `MCP_STDIO=1 npm test`.
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
+import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
+import { fileURLToPath } from "node:url";
 
-const url = new URL(process.env.MCP_URL ?? "http://localhost:3000/mcp");
+// MCP_STDIO=1 tests the installable version (bin/billie-mcp.js) instead of the HTTP endpoint.
 const client = new Client({ name: "smoke-test", version: "1.0.0" });
-await client.connect(new StreamableHTTPClientTransport(url));
+if (process.env.MCP_STDIO) {
+  const bin = fileURLToPath(new URL("../bin/billie-mcp.js", import.meta.url));
+  console.log("Testing stdio:", bin);
+  await client.connect(new StdioClientTransport({ command: process.execPath, args: [bin], cwd: "/" }));
+} else {
+  const url = new URL(process.env.MCP_URL ?? "http://localhost:3000/mcp");
+  console.log("Testing HTTP:", url.href);
+  await client.connect(new StreamableHTTPClientTransport(url));
+}
 
 const text = (r: any) => r.content?.[0]?.text ?? "";
 let failures = 0;

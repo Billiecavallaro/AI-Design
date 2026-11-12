@@ -1,4 +1,4 @@
-// Local dev server: serves /public and the MCP endpoint at /mcp, like Vercel does.
+// Local dev server: serves the built site (_site) and the MCP endpoint at /mcp, like Vercel does.
 // Run: npm run dev  →  http://localhost:3000
 import { createServer } from "node:http";
 import { readFile } from "node:fs/promises";
@@ -18,7 +18,7 @@ createServer(async (req, res) => {
   }
   const path = normalize(url.pathname === "/" ? "/index.html" : url.pathname).replace(/^(\.\.[/\\])+/, "");
   try {
-    const data = await readFile(join(process.cwd(), "public", path));
+    const data = await readFile(join(process.cwd(), "_site", path));
     res.writeHead(200, { "content-type": types[extname(path)] ?? "application/octet-stream" });
     res.end(data);
   } catch {

@@ -4,7 +4,8 @@
 
 ## Connect
 
-- MCP endpoint (Streamable HTTP, stateless): /mcp
+- Install (Claude Code): claude mcp add billie -- npx -y github:Billiecavallaro/AI-Design
+- Install (any MCP app, stdio): npx -y github:Billiecavallaro/AI-Design
 - Tools: get_profile, get_fit_for_role, list_case_studies, get_case_study, request_full_access, book_intro, list_products, get_product
 - Resource: billie://profile
 

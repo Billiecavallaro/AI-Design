@@ -1,34 +1,44 @@
 {
   "name": "billie-mcp",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "billie.mcp: Billie Cavallaro as an MCP server, plus its garage-studio homepage",
   "scripts": {
-    "dev": "tsx dev/serve.ts",
+    "dev": "node scripts/build-site.mjs && tsx dev/serve.ts",
+    "start": "node bin/billie-mcp.js",
+    "build": "node scripts/build-site.mjs",
     "typecheck": "tsc",
     "test": "tsx scripts/smoke.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Billiecavallaro/ai-design.git"
+    "url": "git+https://github.com/Billiecavallaro/AI-Design.git"
   },
   "author": "Billie Cavallaro",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/Billiecavallaro/ai-design/issues"
+    "url": "https://github.com/Billiecavallaro/AI-Design/issues"
   },
-  "homepage": "https://github.com/Billiecavallaro/ai-design#readme",
+  "homepage": "https://github.com/Billiecavallaro/AI-Design#readme",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.32.2",
-    "zod": "^4.6.7"
+    "zod": "^4.6.7",
+    "tsx": "^4.23.15"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
-    "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   },
   "type": "module",
   "private": true,
   "engines": {
     "node": ">=20"
-  }
+  },
+  "bin": {
+    "billie-mcp": "bin/billie-mcp.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "content"
+  ]
 }

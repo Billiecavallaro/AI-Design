@@ -1,6 +1,9 @@
 // billie.mcp homepage: hotspots, live demo and copy button. No build step, no dependencies.
 (() => {
-  const MCP_URL = `${location.origin}/mcp`;
+  // Empty → the demo runs billie.mcp's tool code in the browser (works on GitHub Pages).
+  // Set the meta tag to a hosted /mcp URL → the demo calls the live server instead.
+  const MCP_URL = document.querySelector('meta[name="mcp-endpoint"]')?.content.trim() || "";
+  const INSTALL_CMD = "claude mcp add billie -- npx -y github:Billiecavallaro/AI-Design";
 
   // ---------- Hotspots over the garage illustration ----------
   // x/y are in the illustration's 1600×900 coordinate space.
@@ -73,7 +76,20 @@
   const jd = document.getElementById("jd");
   let rpcId = 1;
 
+  let localTools;
+  async function runLocally(name, args) {
+    if (!localTools) {
+      const [{ createTools }, profile, caseStudies, products] = await Promise.all([
+        import("./tools.js"),
+        ...["profile", "case-studies", "products"].map((f) => fetch(`content/${f}.json`).then((r) => r.json())),
+      ]);
+      localTools = createTools({ profile, caseStudies, products });
+    }
+    return JSON.stringify(localTools[name](args), null, 2);
+  }
+
   async function callTool(name, args) {
+    if (!MCP_URL) return runLocally(name, args);
     const res = await fetch(MCP_URL, {
       method: "POST",
       headers: { "content-type": "application/json", accept: "application/json, text/event-stream" },
@@ -99,7 +115,7 @@
       out.textContent = `→ ${name}(${Object.keys(args).length ? JSON.stringify(args).slice(0, 120) + (JSON.stringify(args).length > 120 ? "…" : "") : ""})\n`;
       try {
         out.textContent += `\n${await callTool(name, args)}`;
-        status.textContent = "200 OK";
+        status.textContent = MCP_URL ? "200 OK" : "ran in your browser";
       } catch (err) {
         out.style.color = "#ffb4b4";
         out.textContent += `\nCouldn’t reach the server: ${err.message}`;
@@ -110,11 +126,15 @@
   );
 
   // ---------- Connect section ----------
-  document.querySelectorAll(".mcp-url").forEach((el) => (el.textContent = MCP_URL));
+  if (MCP_URL) {
+    document.querySelectorAll(".mcp-url").forEach((el) => (el.textContent = MCP_URL));
+    document.getElementById("hosted").hidden = false;
+  }
   const copyBtn = document.getElementById("copy-url");
+  const label = copyBtn.textContent;
   copyBtn.addEventListener("click", async () => {
-    try { await navigator.clipboard.writeText(MCP_URL); copyBtn.textContent = "Copied!"; }
-    catch { copyBtn.textContent = MCP_URL; }
-    setTimeout(() => (copyBtn.textContent = "Copy server URL"), 1800);
+    try { await navigator.clipboard.writeText(INSTALL_CMD); copyBtn.textContent = "Copied!"; }
+    catch { copyBtn.textContent = "Copy it from the box"; }
+    setTimeout(() => (copyBtn.textContent = label), 1800);
   });
 })();

@@ -1,6 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "outputDirectory": "public",
+  "buildCommand": "node scripts/build-site.mjs",
+  "outputDirectory": "_site",
   "functions": {
     "api/mcp.ts": { "includeFiles": "content/**" }
   },

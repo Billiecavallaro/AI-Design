@@ -7,7 +7,17 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "noEmit": true,
-    "types": ["node"]
+    "types": [
+      "node"
+    ],
+    "allowJs": true,
+    "checkJs": false,
+    "allowImportingTsExtensions": true
   },
-  "include": ["api", "src", "dev", "scripts"]
+  "include": [
+    "api",
+    "src",
+    "dev",
+    "scripts"
+  ]
 }
