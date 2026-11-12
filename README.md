@@ -35,7 +35,7 @@ Plus one resource, `billie://profile`, a markdown version of my profile.
 
 Anything in `[BRACKETS]` in `content/` is a placeholder. The server hides placeholders from agents automatically, so nothing breaks, but these make it much better:
 
-- [ ] `profile.json`: LinkedIn URL, newsletter URL, **calendar booking link**, **case-study request form URL**, stealth-startup one-liner
+- [ ] `profile.json`: **calendar booking link**, **case-study request form URL**, stealth-startup one-liner
 - [ ] `case-studies.json`: `public_details` for each case study, and the stealth-startup title and summary
 - [ ] `products.json`: Vibe Lab **price and Lemon Squeezy link**, skills bundle name, contents, price and waitlist link
 - [ ] Read every line of `content/` and make sure you're comfortable with it being public, especially anything about Capital One
